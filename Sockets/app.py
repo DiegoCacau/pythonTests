@@ -108,3 +108,5 @@ def test_disconnect():
 
 if __name__ == '__main__':
     socketio.run(app, debug=True)
+
+    kill $(lsof -t -i:5000)
