@@ -54,8 +54,10 @@ class Example(QWidget):
         self.b.clicked.connect(self.t1.pause)
         self.b.clicked.connect(self.t2.pause)
         self.c.clicked.connect(self.prt)
+        self.b.clicked.connect(self.chngTxt)
 
         self.value = 0
+        self.status = True
 
 
 
@@ -67,6 +69,13 @@ class Example(QWidget):
     def prt(self):
         print(self.value)
         self.value = self.value +1
+
+    def chngTxt(self):
+        if self.status:
+            self.b.setText("Resume")
+        else:
+            self.b.setText("Pause")
+        self.status = not self.status    
 
 
 if __name__ == '__main__':
